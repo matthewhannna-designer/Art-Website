@@ -892,6 +892,10 @@
       var details = document.getElementById('details');
       var MAX_W = 340;
       var MAX_H = window.innerHeight * 0.7;
+      function fitSize() {
+        MAX_W = Math.min(window.innerWidth * 0.6, 900);
+        MAX_H = window.innerHeight * 0.84;
+      }
 
       function open(frame) {
         var art = frame.querySelector('.art');
@@ -899,6 +903,7 @@
         var style = getComputedStyle(frame);
         var w = parseFloat(style.width);
         var h = parseFloat(style.height);
+        fitSize();
         var scale = Math.min(MAX_W / w, MAX_H / h);
         tilt.style.width = (w * scale + 28) + 'px';
         tilt.style.height = (h * scale + 28) + 'px';
