@@ -720,6 +720,61 @@
     .wall {
       padding-bottom: 110px;
     }
+    /* Smaller descriptor, at eye height and closer to the piece, with no "i" marker */
+    .info {
+      width: 0;
+      height: 0;
+      border: 0;
+      background: transparent;
+      font-size: 0;
+      color: transparent;
+      left: 100%;
+      top: 50%;
+      bottom: auto;
+    }
+    html.zoomed .frame .plaque,
+    .frame .plaque {
+      left: 16px;
+      top: 0;
+      bottom: auto;
+      transform: translateY(-50%);
+      width: 180px;
+      padding: 14px 14px;
+    }
+    .label .artist {
+      font-size: 0.72rem;
+    }
+    .label .title {
+      font-size: 0.72rem;
+      margin-top: 6px !important;
+    }
+    .label .medium {
+      font-size: 0.68rem;
+      margin-top: 6px !important;
+    }
+    .label .credit {
+      font-size: 0.6rem;
+      margin-top: 10px !important;
+    }
+    .label .price {
+      font-size: 0.66rem;
+      margin-top: 10px !important;
+    }
+    .mini {
+      left: 16px;
+      top: 50%;
+      bottom: auto;
+      transform: translateY(-50%);
+      width: 180px;
+      padding: 14px 14px;
+    }
+    .mini i {
+      height: 3px;
+      margin-bottom: 4px;
+    }
+    .mini i.gap {
+      margin-top: 8px;
+    }
   </style>
 </head>
 <body>
