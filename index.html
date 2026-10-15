@@ -789,6 +789,10 @@
       height: calc(230 * var(--cm) + 110px);
       min-height: 560px;
     }
+    /* Gap between the introduction text and the left edge */
+    .statement {
+      left: 56px;
+    }
   </style>
 </head>
 <body>
@@ -1127,10 +1131,16 @@
       function centre() {
         var stripLeft = strip.getBoundingClientRect().left;
         var wallLeft = target.getBoundingClientRect().left - stripLeft + strip.scrollLeft;
+        strip.style.scrollSnapType = 'none';
         strip.scrollLeft = wallLeft + target.offsetWidth / 2 - strip.clientWidth / 2;
       }
+      function release() {
+        strip.style.scrollSnapType = '';
+      }
       centre();
-      window.addEventListener('load', centre);
+      requestAnimationFrame(centre);
+      window.addEventListener('load', function () { centre(); setTimeout(release, 200); });
+      setTimeout(function () { centre(); release(); }, 400);
     })();
   </script>
   <script>
