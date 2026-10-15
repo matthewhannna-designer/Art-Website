@@ -145,6 +145,91 @@
     .intro.open .sb-cover {
       transform: rotateY(-160deg);
     }
+    :root {
+      --cm: 3px;
+    }
+    .room {
+      background: #2a2a2a;
+      padding: 24px 0;
+    }
+    .wall-strip {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+    }
+    .wall {
+      position: relative;
+      flex: 0 0 min(900px, 100vw);
+      height: 420px;
+      scroll-snap-align: start;
+      background: linear-gradient(#ebe8e3, #e2ded7);
+    }
+    .skirt {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 90px;
+      height: 14px;
+      background: #cfcbc4;
+      border-top: 1px solid #bdb8af;
+    }
+    .floor {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 90px;
+      background: repeating-linear-gradient(90deg, #b9b2a8 0 60px, #aca59a 60px 61px);
+    }
+    .frame {
+      position: absolute;
+      bottom: 150px;
+      left: var(--x);
+      width: calc(var(--w) * var(--cm));
+      height: calc(var(--h) * var(--cm));
+      background: #ffffff;
+      padding: 8px;
+      box-shadow: 4px 6px 14px rgba(0, 0, 0, 0.25);
+    }
+    .frame .art {
+      width: 100%;
+      height: 100%;
+      background: #d6d2cb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: #6b6b6b;
+      text-align: center;
+    }
+    .lamp {
+      position: absolute;
+      top: 0;
+      left: calc(var(--x) + (var(--w) * var(--cm)) / 2);
+      width: 0;
+      height: 0;
+    }
+    .lamp::before {
+      content: "";
+      position: absolute;
+      left: -14px;
+      top: 0;
+      width: 28px;
+      height: 8px;
+      background: #1a1a1a;
+    }
+    .lamp::after {
+      content: "";
+      position: absolute;
+      left: -40px;
+      top: 8px;
+      width: 80px;
+      height: 260px;
+      background: linear-gradient(rgba(255, 244, 214, 0.45), rgba(255, 244, 214, 0));
+      clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%);
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
@@ -165,6 +250,29 @@
   <header>
     <h1>Matthew Hanna</h1>
   </header>
+
+  <section class="room" aria-label="Gallery room">
+    <div class="wall-strip">
+      <div class="wall">
+        <div class="skirt"></div>
+        <div class="floor"></div>
+        <div class="lamp" style="--x: 60px; --w: 60;"></div>
+        <div class="frame" style="--x: 60px; --w: 60; --h: 80;"><div class="art">Artwork 60 x 80 cm</div></div>
+        <div class="lamp" style="--x: 360px; --w: 100;"></div>
+        <div class="frame" style="--x: 360px; --w: 100; --h: 70;"><div class="art">Artwork 100 x 70 cm</div></div>
+        <div class="lamp" style="--x: 640px; --w: 40;"></div>
+        <div class="frame" style="--x: 640px; --w: 40; --h: 50;"><div class="art">Artwork 40 x 50 cm</div></div>
+      </div>
+      <div class="wall">
+        <div class="skirt"></div>
+        <div class="floor"></div>
+        <div class="lamp" style="--x: 200px; --w: 80;"></div>
+        <div class="frame" style="--x: 200px; --w: 80; --h: 60;"><div class="art">Artwork 80 x 60 cm</div></div>
+        <div class="lamp" style="--x: 560px; --w: 50;"></div>
+        <div class="frame" style="--x: 560px; --w: 50; --h: 70;"><div class="art">Artwork 50 x 70 cm</div></div>
+      </div>
+    </div>
+  </section>
 
   <main>
     <!-- Add a new <figure> for each artwork. Put the image file in the images folder. -->
