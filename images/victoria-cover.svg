@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Dithered grey map of Victoria with a red heart on Melbourne">
+  <defs>
+    <pattern id="dither" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="4" fill="#2a2a2a"/>
+      <rect x="0" y="0" width="2" height="2" fill="#8a8a8a"/>
+      <rect x="2" y="2" width="2" height="2" fill="#8a8a8a"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="450" fill="#2a2a2a"/>
+  <g transform="translate(190,25) scale(1.2)">
+    <path d="M40 60 L300 35 L340 90 L395 185 L340 215 L300 240 L240 230 L200 245 L110 265 L70 275 L40 230 Z" fill="url(#dither)" stroke="#8a8a8a" stroke-width="0.8"/>
+    <path transform="translate(250,215) scale(1.5)" d="M0 6 C-6 2 -8 -2 -4 -5 C-2 -6 0 -4 0 -2 C0 -4 2 -6 4 -5 C8 -2 6 2 0 6 Z" fill="#e63946"/>
+  </g>
+  <text x="24" y="430" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#ffffff" letter-spacing="0.8">Matthew Hanna</text>
+</svg>
