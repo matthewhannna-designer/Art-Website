@@ -700,6 +700,19 @@
     html.zoomed .frame .plaque {
       left: calc(100% + 74px);
     }
+    /* Remove tiled texture so walls join with no seams */
+    body::before {
+      display: none;
+    }
+    .room {
+      background: #f1ede6;
+    }
+    .wall {
+      background: linear-gradient(#ebe8e3, #e2ded7);
+    }
+    .floor {
+      background: #b98a5a;
+    }
   </style>
 </head>
 <body>
