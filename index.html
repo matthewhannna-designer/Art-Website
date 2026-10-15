@@ -643,11 +643,20 @@
       animation: eye-blink 1.6s ease-in-out infinite;
     }
     @keyframes eye-blink {
-      0%, 78%, 100% {
+      0%, 70%, 100% {
         transform: scaleY(1);
       }
-      86% {
-        transform: scaleY(0.08);
+      76% {
+        transform: scaleY(0.12);
+      }
+      80% {
+        transform: scaleY(0.4);
+      }
+      84% {
+        transform: scaleY(0.05);
+      }
+      91% {
+        transform: scaleY(0.85);
       }
     }
     body.cur-eye-on,
@@ -1006,7 +1015,7 @@
         <path d="M4 22 Q24 2 44 22 Q24 42 4 22 Z" fill="#ffffff"/>
         <path d="M4 22 Q24 2 44 22" fill="none" stroke="#111111" stroke-width="2.6" stroke-linecap="round"/>
         <circle cx="24" cy="22" r="7" fill="#111111"/>
-        <circle cx="26.5" cy="19.5" r="2" fill="#ffffff"/>
+        <circle cx="20.5" cy="18" r="1.6" fill="#ffffff"/>
         <path d="M10 17 L6 11 M17 12 L14 5 M24 11 L24 4 M31 12 L34 5 M38 17 L42 11" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
       </g>
     </svg>
