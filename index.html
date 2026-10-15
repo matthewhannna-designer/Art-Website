@@ -482,6 +482,17 @@
       font-size: 0.85rem;
       font-weight: 700;
     }
+    /* Sold marker: hidden by default, tiny red dot only on sold pieces */
+    .frame .sticker {
+      display: none;
+    }
+    .frame.sold .sticker {
+      display: block;
+      width: 8px;
+      height: 8px;
+      top: -4px;
+      right: -4px;
+    }
   </style>
 </head>
 <body>
