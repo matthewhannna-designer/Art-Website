@@ -658,6 +658,41 @@
     body.cur-dot-on * {
       cursor: none !important;
     }
+    /* Label placeholder: grey bars matching the text layout when zoomed out */
+    .mini {
+      position: absolute;
+      left: calc(100% + 54px);
+      bottom: 0;
+      width: 240px;
+      padding: 18px 18px 20px;
+      background: linear-gradient(115deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.5) 48%, rgba(255, 255, 255, 0) 66%), #ededeb;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+      pointer-events: none;
+    }
+    .mini i {
+      display: block;
+      height: 4px;
+      margin-bottom: 6px;
+      background: #8c8c8c;
+      border-radius: 1px;
+    }
+    .mini i.gap {
+      margin-top: 12px;
+    }
+    html.zoomed .mini {
+      display: none;
+    }
+    html:not(.zoomed) .frame .plaque {
+      display: none;
+    }
+    html.zoomed .frame .plaque {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    html.zoomed .frame .plaque {
+      left: calc(100% + 54px);
+    }
   </style>
 </head>
 <body>
@@ -927,6 +962,57 @@
       }, { passive: true });
 
       document.addEventListener('mouseleave', function () { setMode(''); });
+    })();
+  </script>
+  <script>
+    (function () {
+      var baseDpr = window.devicePixelRatio || 1;
+
+      function checkZoom() {
+        var dpr = window.devicePixelRatio || 1;
+        var pinch = window.visualViewport ? window.visualViewport.scale : 1;
+        var zoomed = (dpr / baseDpr) > 1.2 || pinch > 1.2;
+        document.documentElement.classList.toggle('zoomed', zoomed);
+      }
+
+      function chunk(text, size) {
+        var words = text.split(' '), lines = [], line = '';
+        words.forEach(function (w) {
+          if ((line + ' ' + w).trim().length > size) { lines.push(line.trim()); line = w; }
+          else { line = (line + ' ' + w); }
+        });
+        if (line.trim()) lines.push(line.trim());
+        return lines;
+      }
+
+      function bar(len, gap) {
+        var pct = Math.min(100, Math.max(16, len * 2.3));
+        return '<i' + (gap ? ' class="gap"' : '') + ' style="width:' + pct.toFixed(0) + '%"></i>';
+      }
+
+      function buildMinis() {
+        document.querySelectorAll('.frame').forEach(function (frame) {
+          var plaque = frame.querySelector('.plaque');
+          if (!plaque || frame.querySelector('.mini')) return;
+          var title = (plaque.querySelector('.title') || {}).textContent || '';
+          var medium = (plaque.querySelector('.medium') || {}).textContent || '';
+          var credit = (plaque.querySelector('.credit') || {}).textContent || '';
+          var price = (plaque.querySelector('.price') || {}).textContent || '';
+          var html = bar(14, false) + bar(title.length, true) + bar(medium.length, false);
+          chunk(credit, 40).forEach(function (line, i) { html += bar(line.length, i === 0); });
+          html += bar(price.length, true);
+          var mini = document.createElement('div');
+          mini.className = 'mini';
+          mini.setAttribute('aria-hidden', 'true');
+          mini.innerHTML = html;
+          frame.appendChild(mini);
+        });
+      }
+
+      buildMinis();
+      checkZoom();
+      window.addEventListener('resize', checkZoom);
+      if (window.visualViewport) window.visualViewport.addEventListener('resize', checkZoom);
     })();
   </script>
 </body>
