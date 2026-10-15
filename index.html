@@ -493,6 +493,27 @@
       top: -4px;
       right: -4px;
     }
+    /* Ceiling band and lower, floating track lights */
+    .wall::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background: linear-gradient(180deg, #e9e7e2, #dcd9d2);
+      border-bottom: 1px solid #c9c5bd;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+      z-index: 1;
+    }
+    .slot::before {
+      top: -44px;
+      z-index: 2;
+    }
+    .lamp {
+      top: -18px;
+      z-index: 2;
+    }
   </style>
 </head>
 <body>
