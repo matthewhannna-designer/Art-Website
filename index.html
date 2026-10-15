@@ -784,6 +784,11 @@
     .mini i.gap {
       margin-top: 8px;
     }
+    /* Wall height follows the scale so eye-height pieces always fit below the ceiling */
+    .wall {
+      height: calc(230 * var(--cm) + 110px);
+      min-height: 560px;
+    }
   </style>
 </head>
 <body>
