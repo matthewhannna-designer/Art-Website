@@ -693,6 +693,13 @@
     html.zoomed .frame .plaque {
       left: calc(100% + 54px);
     }
+    /* Wider gap between each piece and its description */
+    .mini {
+      left: calc(100% + 84px);
+    }
+    html.zoomed .frame .plaque {
+      left: calc(100% + 74px);
+    }
   </style>
 </head>
 <body>
@@ -1013,6 +1020,23 @@
       checkZoom();
       window.addEventListener('resize', checkZoom);
       if (window.visualViewport) window.visualViewport.addEventListener('resize', checkZoom);
+    })();
+  </script>
+  <script>
+    (function () {
+      /* On entry, centre the first artwork wall on screen (the introduction wall sits to its left) */
+      var strip = document.querySelector('.wall-strip');
+      if (!strip) return;
+      var walls = strip.querySelectorAll('.wall');
+      var target = walls[1] || walls[0];
+      if (!target) return;
+      function centre() {
+        var stripLeft = strip.getBoundingClientRect().left;
+        var wallLeft = target.getBoundingClientRect().left - stripLeft + strip.scrollLeft;
+        strip.scrollLeft = wallLeft + target.offsetWidth / 2 - strip.clientWidth / 2;
+      }
+      centre();
+      window.addEventListener('load', centre);
     })();
   </script>
 </body>
