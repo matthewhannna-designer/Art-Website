@@ -793,6 +793,34 @@
     .statement {
       left: 56px;
     }
+    /* Services above a false ceiling: ducts and pipes in the void, then a tiled ceiling grid */
+    .wall::before {
+      top: 0;
+      height: 36px;
+      border-bottom: 0;
+      background:
+        linear-gradient(180deg, transparent 0 6px, #a7a39c 6px 15px, #7a766f 15px 17px, transparent 17px),
+        linear-gradient(180deg, transparent 0 22px, #bdb7ac 22px 25px, transparent 25px),
+        linear-gradient(180deg, transparent 0 29px, #9b958a 29px 31px, transparent 31px),
+        #8f8c86;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+      z-index: 1;
+    }
+    .wall::after {
+      content: "";
+      position: absolute;
+      top: 36px;
+      left: 0;
+      right: 0;
+      height: 54px;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(90deg, transparent 0 119px, rgba(0, 0, 0, 0.14) 119px 120px),
+        repeating-linear-gradient(180deg, transparent 0 26px, rgba(0, 0, 0, 0.14) 26px 27px),
+        linear-gradient(#f5f4f1, #e4e1db);
+      border-top: 1px solid #bdb8ae;
+      z-index: 1;
+    }
   </style>
 </head>
 <body>
