@@ -685,5 +685,60 @@
       });
     })();
   </script>
+  <script>
+    (function () {
+      var H = 110;
+      var T = 120 / 230;
+
+      function buildFloor(vx) {
+        function xb(k) { return 450 + k * 120; }
+        function xt(k) { return vx + (xb(k) - vx) * T; }
+        function edge(k, y) { return xt(k) + (xb(k) - xt(k)) * y / H; }
+        var out = '';
+        for (var j = -9; j <= 8; j++) {
+          var fill = (j % 2 === 0) ? '#c49a68' : '#b78b59';
+          out += '<polygon fill="' + fill + '" points="' + xt(j).toFixed(1) + ',0 ' + xt(j + 1).toFixed(1) + ',0 ' + xb(j + 1) + ',' + H + ' ' + xb(j) + ',' + H + '"/>';
+        }
+        for (var k = -9; k <= 8; k++) {
+          var rows = (k % 2 === 0) ? [28, 66, 100] : [46, 84];
+          var d = '';
+          rows.forEach(function (y) {
+            d += 'M' + edge(k, y).toFixed(1) + ' ' + y + 'L' + edge(k + 1, y).toFixed(1) + ' ' + y;
+          });
+          out += '<path fill="none" stroke="#7a5630" stroke-width="0.9" d="' + d + '"/>';
+          var gx2 = edge(k, 0) + (edge(k + 1, 0) - edge(k, 0)) * 0.35;
+          var gx = edge(k, 60) + (edge(k + 1, 60) - edge(k, 60)) * 0.35;
+          out += '<path fill="none" stroke="#9c7046" stroke-width="0.6" opacity="0.6" d="M' + gx2.toFixed(1) + ' 0Q' + ((gx + gx2) / 2 + 3).toFixed(1) + ' 55 ' + gx.toFixed(1) + ' ' + H + '"/>';
+        }
+        var seams = '';
+        for (var m = -9; m <= 9; m++) {
+          seams += 'M' + xt(m).toFixed(1) + ' 0L' + xb(m) + ' ' + H;
+        }
+        out += '<path fill="none" stroke="#6e4c2a" stroke-width="1.1" d="' + seams + '"/>';
+        return out;
+      }
+
+      var pending = false;
+      function update() {
+        pending = false;
+        var centre = window.innerWidth / 2;
+        document.querySelectorAll('.wall').forEach(function (wall) {
+          var svg = wall.querySelector('svg.floor');
+          if (!svg) return;
+          var r = wall.getBoundingClientRect();
+          var vx = (centre - r.left) / r.width * 900;
+          svg.innerHTML = buildFloor(vx);
+        });
+      }
+      function queue() {
+        if (!pending) { pending = true; requestAnimationFrame(update); }
+      }
+
+      var strip = document.querySelector('.wall-strip');
+      if (strip) strip.addEventListener('scroll', queue, { passive: true });
+      window.addEventListener('resize', queue);
+      update();
+    })();
+  </script>
 </body>
 </html>
