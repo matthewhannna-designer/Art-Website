@@ -382,6 +382,29 @@
       font-weight: 700;
       border-radius: 2px;
     }
+    .buy {
+      position: relative;
+    }
+    .heart-pop {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      font-size: 22px;
+      line-height: 1;
+      color: #e63946;
+      pointer-events: none;
+      animation: heart-rise 0.9s ease-out forwards;
+    }
+    @keyframes heart-rise {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, 0) scale(0.6);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -56px) scale(1.4);
+      }
+    }
   </style>
 </head>
 <body>
@@ -522,6 +545,17 @@
 
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') close();
+      });
+
+      details.addEventListener('click', function (e) {
+        var btn = e.target.closest('.buy');
+        if (!btn) return;
+        if (btn.getAttribute('href') === '#') e.preventDefault();
+        var heart = document.createElement('span');
+        heart.className = 'heart-pop';
+        heart.textContent = '♥';
+        btn.appendChild(heart);
+        setTimeout(function () { heart.remove(); }, 950);
       });
     })();
   </script>
