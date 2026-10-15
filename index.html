@@ -514,6 +514,18 @@
       top: -18px;
       z-index: 2;
     }
+    /* Bigger pieces, with neighbouring walls visible and wide gaps between */
+    :root {
+      --cm: min(7px, 0.6vw);
+    }
+    .wall-strip {
+      padding: 0 10vw;
+      gap: 8vw;
+      scroll-padding: 0 10vw;
+    }
+    .wall {
+      flex: 0 0 80vw;
+    }
   </style>
 </head>
 <body>
