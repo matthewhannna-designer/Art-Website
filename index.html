@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matthew Hanna Art</title>
+  <style>
+    :root {
+      --bg: #f7f5f2;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --gap: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+    }
+    header, footer {
+      padding: 32px 24px;
+      text-align: center;
+    }
+    header h1 {
+      font-weight: 300;
+      font-size: 2rem;
+      letter-spacing: 0.05em;
+    }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 48px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--gap);
+    }
+    figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    figcaption {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    footer {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Matthew Hanna</h1>
+  </header>
+
+  <main>
+    <!-- Add a new <figure> for each artwork. Put the image file in the images folder. -->
+    <figure>
+      <img src="images/placeholder.svg" alt="Placeholder artwork" loading="lazy">
+      <figcaption>Title, year, medium</figcaption>
+    </figure>
+  </main>
+
+  <footer>
+    <p>Instagram: @matthewarchitect</p>
+  </footer>
+</body>
+</html>

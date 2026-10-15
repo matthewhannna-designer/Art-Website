@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matthew Hanna</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      background: #ffffff;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+    #logo {
+      position: absolute;
+      left: 0;
+      top: 0;
+      text-align: center;
+      white-space: nowrap;
+      color: #111111;
+    }
+    #logo h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: clamp(2rem, 6vw, 4.5rem);
+      letter-spacing: -0.01em;
+    }
+    #logo p {
+      margin: 0.25em 0 0;
+      font-size: clamp(0.9rem, 2vw, 1.25rem);
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+  <div id="logo">
+    <h1>Matthew Hanna</h1>
+    <p>Art Journal</p>
+  </div>
+
+  <script>
+    const el = document.getElementById('logo');
+    const colours = ['#111111', '#e63946', '#1d3557', '#2a9d8f', '#f4a261', '#8338ec'];
+    let colourIndex = 0;
+    let x = 0, y = 0;
+    let dx = 2.5, dy = 2;
+
+    function centre() {
+      x = (window.innerWidth - el.offsetWidth) / 2;
+      y = (window.innerHeight - el.offsetHeight) / 2;
+    }
+
+    function nextColour() {
+      colourIndex = (colourIndex + 1) % colours.length;
+      el.style.color = colours[colourIndex];
+    }
+
+    function step() {
+      const maxX = window.innerWidth - el.offsetWidth;
+      const maxY = window.innerHeight - el.offsetHeight;
+
+      x += dx;
+      y += dy;
+
+      if (x <= 0 || x >= maxX) {
+        dx = -dx;
+        x = Math.max(0, Math.min(x, maxX));
+        nextColour();
+      }
+      if (y <= 0 || y >= maxY) {
+        dy = -dy;
+        y = Math.max(0, Math.min(y, maxY));
+        nextColour();
+      }
+
+      el.style.transform = `translate(${x}px, ${y}px)`;
+      requestAnimationFrame(step);
+    }
+
+    window.addEventListener('resize', centre);
+    centre();
+    requestAnimationFrame(step);
+  </script>
+</body>
+</html>
