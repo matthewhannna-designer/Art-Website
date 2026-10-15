@@ -455,6 +455,33 @@
       opacity: 0.35;
       background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.4  0 0 0 0 0.35  0 0 0 0 0.3  0 0 0 0.25 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
     }
+    :root {
+      --cm: min(4px, 0.45vw);
+    }
+    .wall {
+      flex: 0 0 100vw;
+      height: 100vh;
+      min-height: 560px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding-bottom: 150px;
+      box-sizing: border-box;
+    }
+    .slot {
+      position: relative;
+    }
+    .lamp {
+      top: -70px;
+      left: 50%;
+    }
+    .frame {
+      position: relative;
+      left: auto;
+      bottom: auto;
+      width: calc(var(--w) * var(--cm));
+      height: calc(var(--h) * var(--cm));
+    }
   </style>
 </head>
 <body>
@@ -494,20 +521,42 @@
       <div class="wall">
         <div class="skirt"></div>
         <svg class="floor" viewBox="0 0 900 110" preserveAspectRatio="none" aria-hidden="true"><path fill="none" stroke="#a39c91" stroke-width="1" d="M74 0L-270 110M137 0L-150 110M200 0L-30 110M262 0L90 110M325 0L210 110M387 0L330 110M450 0L450 110M513 0L570 110M575 0L690 110M638 0L810 110M700 0L930 110M763 0L1050 110M826 0L1170 110M0 22H900M0 44H900M0 70H900M0 100H900"/></svg>
-        <div class="lamp" style="--x: 60px; --w: 60;"></div>
-        <div class="frame" style="--x: 60px; --w: 60; --h: 80;"><div class="art">Artwork 60 x 80 cm</div><span class="sticker"></span><div class="info" tabindex="0">i<div class="plaque"><h3>Untitled I</h3><p>Add a short description of the piece here.</p><p>Oil on linen</p><p>2026</p><p class="price">$1,200 AUD</p></div></div></div>
-        <div class="lamp" style="--x: 360px; --w: 100;"></div>
-        <div class="frame" style="--x: 360px; --w: 100; --h: 70;"><div class="art">Artwork 100 x 70 cm</div><span class="sticker"></span><div class="info" tabindex="0">i<div class="plaque"><h3>Untitled II</h3><p>Add a short description of the piece here.</p><p>Acrylic on canvas</p><p>2026</p><p class="price">$1,800 AUD</p></div></div></div>
-        <div class="lamp" style="--x: 640px; --w: 40;"></div>
-        <div class="frame" style="--x: 640px; --w: 40; --h: 50;"><div class="art">Artwork 40 x 50 cm</div><span class="sticker"></span><div class="info" tabindex="0">i<div class="plaque"><h3>Untitled III</h3><p>Add a short description of the piece here.</p><p>Ink on paper</p><p>2025</p><p class="price">$450 AUD</p></div></div></div>
+        <div class="slot">
+          <div class="lamp"></div>
+          <div class="frame" style="--w: 60; --h: 80;"><div class="art">Artwork 60 x 80 cm</div><span class="sticker"></span><div class="info" tabindex="0">i<div class="plaque"><h3>Untitled I</h3><p>Add a short description of the piece here.</p><p>Oil on linen</p><p>2026</p><p class="price">$1,200 AUD</p></div></div></div>
+        </div>
       </div>
       <div class="wall">
         <div class="skirt"></div>
         <svg class="floor" viewBox="0 0 900 110" preserveAspectRatio="none" aria-hidden="true"><path fill="none" stroke="#a39c91" stroke-width="1" d="M74 0L-270 110M137 0L-150 110M200 0L-30 110M262 0L90 110M325 0L210 110M387 0L330 110M450 0L450 110M513 0L570 110M575 0L690 110M638 0L810 110M700 0L930 110M763 0L1050 110M826 0L1170 110M0 22H900M0 44H900M0 70H900M0 100H900"/></svg>
-        <div class="lamp" style="--x: 200px; --w: 80;"></div>
-        <div class="frame" style="--x: 200px; --w: 80; --h: 60;"><div class="art">Artwork 80 x 60 cm</div><span class="sticker"></span><div class="info" tabindex="0">i<div class="plaque"><h3>Untitled IV</h3><p>Add a short description of the piece here.</p><p>Oil on board</p><p>2025</p><p class="price">$900 AUD</p></div></div></div>
-        <div class="lamp" style="--x: 560px; --w: 50;"></div>
-        <div class="frame" style="--x: 560px; --w: 50; --h: 70;"><div class="art">Artwork 50 x 70 cm</div><span class="sticker"></span><div class="info" tabindex="0">i<div class="plaque"><h3>Untitled V</h3><p>Add a short description of the piece here.</p><p>Mixed media on paper</p><p>2026</p><p class="price">$650 AUD</p></div></div></div>
+        <div class="slot">
+          <div class="lamp"></div>
+          <div class="frame" style="--w: 100; --h: 70;"><div class="art">Artwork 100 x 70 cm</div><span class="sticker"></span><div class="info" tabindex="0">i<div class="plaque"><h3>Untitled II</h3><p>Add a short description of the piece here.</p><p>Acrylic on canvas</p><p>2026</p><p class="price">$1,800 AUD</p></div></div></div>
+        </div>
+      </div>
+      <div class="wall">
+        <div class="skirt"></div>
+        <svg class="floor" viewBox="0 0 900 110" preserveAspectRatio="none" aria-hidden="true"><path fill="none" stroke="#a39c91" stroke-width="1" d="M74 0L-270 110M137 0L-150 110M200 0L-30 110M262 0L90 110M325 0L210 110M387 0L330 110M450 0L450 110M513 0L570 110M575 0L690 110M638 0L810 110M700 0L930 110M763 0L1050 110M826 0L1170 110M0 22H900M0 44H900M0 70H900M0 100H900"/></svg>
+        <div class="slot">
+          <div class="lamp"></div>
+          <div class="frame" style="--w: 40; --h: 50;"><div class="art">Artwork 40 x 50 cm</div><span class="sticker"></span><div class="info" tabindex="0">i<div class="plaque"><h3>Untitled III</h3><p>Add a short description of the piece here.</p><p>Ink on paper</p><p>2025</p><p class="price">$450 AUD</p></div></div></div>
+        </div>
+      </div>
+      <div class="wall">
+        <div class="skirt"></div>
+        <svg class="floor" viewBox="0 0 900 110" preserveAspectRatio="none" aria-hidden="true"><path fill="none" stroke="#a39c91" stroke-width="1" d="M74 0L-270 110M137 0L-150 110M200 0L-30 110M262 0L90 110M325 0L210 110M387 0L330 110M450 0L450 110M513 0L570 110M575 0L690 110M638 0L810 110M700 0L930 110M763 0L1050 110M826 0L1170 110M0 22H900M0 44H900M0 70H900M0 100H900"/></svg>
+        <div class="slot">
+          <div class="lamp"></div>
+          <div class="frame" style="--w: 80; --h: 60;"><div class="art">Artwork 80 x 60 cm</div><span class="sticker"></span><div class="info" tabindex="0">i<div class="plaque"><h3>Untitled IV</h3><p>Add a short description of the piece here.</p><p>Oil on board</p><p>2025</p><p class="price">$900 AUD</p></div></div></div>
+        </div>
+      </div>
+      <div class="wall">
+        <div class="skirt"></div>
+        <svg class="floor" viewBox="0 0 900 110" preserveAspectRatio="none" aria-hidden="true"><path fill="none" stroke="#a39c91" stroke-width="1" d="M74 0L-270 110M137 0L-150 110M200 0L-30 110M262 0L90 110M325 0L210 110M387 0L330 110M450 0L450 110M513 0L570 110M575 0L690 110M638 0L810 110M700 0L930 110M763 0L1050 110M826 0L1170 110M0 22H900M0 44H900M0 70H900M0 100H900"/></svg>
+        <div class="slot">
+          <div class="lamp"></div>
+          <div class="frame" style="--w: 50; --h: 70;"><div class="art">Artwork 50 x 70 cm</div><span class="sticker"></span><div class="info" tabindex="0">i<div class="plaque"><h3>Untitled V</h3><p>Add a short description of the piece here.</p><p>Mixed media on paper</p><p>2026</p><p class="price">$650 AUD</p></div></div></div>
+        </div>
       </div>
     </div>
   </section>
