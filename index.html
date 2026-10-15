@@ -230,6 +230,68 @@
       clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%);
       pointer-events: none;
     }
+    .frame .sticker {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #d62828;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+    }
+    .info {
+      position: absolute;
+      left: calc(100% + 10px);
+      bottom: 0;
+      width: 22px;
+      height: 22px;
+      border: 1px solid #1a1a1a;
+      border-radius: 50%;
+      background: #ffffff;
+      font-size: 12px;
+      line-height: 20px;
+      text-align: center;
+      cursor: pointer;
+      outline: none;
+    }
+    .info:focus-visible {
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.6);
+    }
+    .plaque {
+      position: absolute;
+      left: calc(100% + 44px);
+      bottom: 0;
+      width: 230px;
+      padding: 16px;
+      background: #f5f2ec;
+      color: #1a1a1a;
+      border: 1px solid #e0dbd1;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+      text-align: left;
+      font-size: 0.8rem;
+      line-height: 1.4;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .plaque h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .plaque p {
+      margin-top: 4px;
+    }
+    .plaque .price {
+      margin-top: 10px;
+      font-weight: 700;
+    }
+    .info:hover .plaque,
+    .info:focus .plaque,
+    .info:focus-within .plaque {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -257,19 +319,19 @@
         <div class="skirt"></div>
         <div class="floor"></div>
         <div class="lamp" style="--x: 60px; --w: 60;"></div>
-        <div class="frame" style="--x: 60px; --w: 60; --h: 80;"><div class="art">Artwork 60 x 80 cm</div></div>
+        <div class="frame" style="--x: 60px; --w: 60; --h: 80;"><div class="art">Artwork 60 x 80 cm</div><span class="sticker"></span><div class="info" tabindex="0">i<div class="plaque"><h3>Untitled I</h3><p>Add a short description of the piece here.</p><p>Oil on linen</p><p>2026</p><p class="price">$1,200 AUD</p></div></div></div>
         <div class="lamp" style="--x: 360px; --w: 100;"></div>
-        <div class="frame" style="--x: 360px; --w: 100; --h: 70;"><div class="art">Artwork 100 x 70 cm</div></div>
+        <div class="frame" style="--x: 360px; --w: 100; --h: 70;"><div class="art">Artwork 100 x 70 cm</div><span class="sticker"></span><div class="info" tabindex="0">i<div class="plaque"><h3>Untitled II</h3><p>Add a short description of the piece here.</p><p>Acrylic on canvas</p><p>2026</p><p class="price">$1,800 AUD</p></div></div></div>
         <div class="lamp" style="--x: 640px; --w: 40;"></div>
-        <div class="frame" style="--x: 640px; --w: 40; --h: 50;"><div class="art">Artwork 40 x 50 cm</div></div>
+        <div class="frame" style="--x: 640px; --w: 40; --h: 50;"><div class="art">Artwork 40 x 50 cm</div><span class="sticker"></span><div class="info" tabindex="0">i<div class="plaque"><h3>Untitled III</h3><p>Add a short description of the piece here.</p><p>Ink on paper</p><p>2025</p><p class="price">$450 AUD</p></div></div></div>
       </div>
       <div class="wall">
         <div class="skirt"></div>
         <div class="floor"></div>
         <div class="lamp" style="--x: 200px; --w: 80;"></div>
-        <div class="frame" style="--x: 200px; --w: 80; --h: 60;"><div class="art">Artwork 80 x 60 cm</div></div>
+        <div class="frame" style="--x: 200px; --w: 80; --h: 60;"><div class="art">Artwork 80 x 60 cm</div><span class="sticker"></span><div class="info" tabindex="0">i<div class="plaque"><h3>Untitled IV</h3><p>Add a short description of the piece here.</p><p>Oil on board</p><p>2025</p><p class="price">$900 AUD</p></div></div></div>
         <div class="lamp" style="--x: 560px; --w: 50;"></div>
-        <div class="frame" style="--x: 560px; --w: 50; --h: 70;"><div class="art">Artwork 50 x 70 cm</div></div>
+        <div class="frame" style="--x: 560px; --w: 50; --h: 70;"><div class="art">Artwork 50 x 70 cm</div><span class="sticker"></span><div class="info" tabindex="0">i<div class="plaque"><h3>Untitled V</h3><p>Add a short description of the piece here.</p><p>Mixed media on paper</p><p>2026</p><p class="price">$650 AUD</p></div></div></div>
       </div>
     </div>
   </section>
