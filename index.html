@@ -611,6 +611,13 @@
       margin: 0;
       scroll-snap-align: none;
     }
+    /* Soft snap: the scroll gently settles with each wall centred on screen */
+    .wall-strip {
+      scroll-snap-type: x proximity;
+    }
+    .wall {
+      scroll-snap-align: center;
+    }
   </style>
 </head>
 <body>
