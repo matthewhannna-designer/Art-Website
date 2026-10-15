@@ -618,6 +618,46 @@
     .wall {
       scroll-snap-align: center;
     }
+    /* Custom cursors: an eye over artwork, a small red dot over buttons */
+    .cur {
+      position: fixed;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+      z-index: 999;
+      display: none;
+    }
+    .cur.on {
+      display: block;
+    }
+    #cur-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #d62828;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+    }
+    .eye-blink {
+      transform-origin: 50% 50%;
+      animation: eye-blink 1.6s ease-in-out infinite;
+    }
+    @keyframes eye-blink {
+      0%, 78%, 100% {
+        transform: scaleY(1);
+      }
+      86% {
+        transform: scaleY(0.08);
+      }
+    }
+    body.cur-eye-on,
+    body.cur-eye-on * {
+      cursor: none !important;
+    }
+    body.cur-dot-on,
+    body.cur-dot-on * {
+      cursor: none !important;
+    }
   </style>
 </head>
 <body>
@@ -841,6 +881,52 @@
       if (strip) strip.addEventListener('scroll', queue, { passive: true });
       window.addEventListener('resize', queue);
       update();
+    })();
+  </script>
+  <div class="cur" id="cur-eye" aria-hidden="true">
+    <svg viewBox="0 0 48 40" width="44" height="36">
+      <g class="eye-blink">
+        <path d="M4 22 Q24 2 44 22 Q24 42 4 22 Z" fill="#ffffff"/>
+        <path d="M4 22 Q24 2 44 22" fill="none" stroke="#111111" stroke-width="2.6" stroke-linecap="round"/>
+        <circle cx="24" cy="22" r="7" fill="#111111"/>
+        <circle cx="26.5" cy="19.5" r="2" fill="#ffffff"/>
+        <path d="M10 17 L6 11 M17 12 L14 5 M24 11 L24 4 M31 12 L34 5 M38 17 L42 11" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+      </g>
+    </svg>
+  </div>
+  <div class="cur" id="cur-dot" aria-hidden="true"></div>
+
+  <script>
+    (function () {
+      var eye = document.getElementById('cur-eye');
+      var dot = document.getElementById('cur-dot');
+      var body = document.body;
+      var mode = '';
+
+      function setMode(next) {
+        if (next === mode) return;
+        mode = next;
+        eye.classList.toggle('on', mode === 'eye');
+        dot.classList.toggle('on', mode === 'dot');
+        body.classList.toggle('cur-eye-on', mode === 'eye');
+        body.classList.toggle('cur-dot-on', mode === 'dot');
+      }
+
+      document.addEventListener('mousemove', function (e) {
+        var t = e.target;
+        var x = e.clientX + 'px', y = e.clientY + 'px';
+        eye.style.transform = 'translate3d(' + x + ', ' + y + ', 0) translate(-50%, -50%)';
+        dot.style.transform = 'translate3d(' + x + ', ' + y + ', 0) translate(-50%, -50%)';
+        if (t.closest && t.closest('.buy, .info, button, a')) {
+          setMode('dot');
+        } else if (t.closest && t.closest('.frame')) {
+          setMode('eye');
+        } else {
+          setMode('');
+        }
+      }, { passive: true });
+
+      document.addEventListener('mouseleave', function () { setMode(''); });
     })();
   </script>
 </body>
