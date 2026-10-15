@@ -713,6 +713,13 @@
     .floor {
       background: #b98a5a;
     }
+    /* Eye-height hanging to scale, with a clear gap above the floor */
+    :root {
+      --cm: min(4px, 0.35vw);
+    }
+    .wall {
+      padding-bottom: 110px;
+    }
   </style>
 </head>
 <body>
@@ -1050,6 +1057,23 @@
       }
       centre();
       window.addEventListener('load', centre);
+    })();
+  </script>
+  <script>
+    (function () {
+      /* Hang each piece so its centre sits at eye height (150 cm above the floor), to scale */
+      function hangAtEyeHeight() {
+        document.querySelectorAll('.slot').forEach(function (slot) {
+          var frame = slot.querySelector('.frame');
+          if (!frame) return;
+          var w = parseFloat(frame.style.getPropertyValue('--w'));
+          var h = parseFloat(frame.style.getPropertyValue('--h'));
+          var cmPx = parseFloat(getComputedStyle(frame).width) / w;
+          slot.style.marginBottom = ((150 - h / 2) * cmPx) + 'px';
+        });
+      }
+      hangAtEyeHeight();
+      window.addEventListener('resize', hangAtEyeHeight);
     })();
   </script>
 </body>
