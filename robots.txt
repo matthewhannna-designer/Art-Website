@@ -34,3 +34,5 @@ Disallow: /
 
 User-agent: PerplexityBot
 Disallow: /
+
+Sitemap: https://art-website.matthewhannna.workers.dev/sitemap.xml
