@@ -205,10 +205,31 @@
       transform: translateY(-6px) scale(1.07);
       filter: drop-shadow(0 16px 14px rgba(0, 0, 0, 0.22));
     }
+    /* Logo: black normally, dithered neon green on hover */
+    .logo-wrap {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 14px;
+      z-index: 5;
+      display: block;
+    }
+    .logo-wrap img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.4s ease;
+    }
+    .logo-hover { opacity: 0; }
+    .logo-wrap:hover .logo-hover { opacity: 1; }
+    .logo-wrap:hover .logo-base { opacity: 0; }
   </style>
 </head>
 <body>
-  <img class="logo" src="images/logo-neon.svg" alt="Matthew Hanna" width="70" height="14">
+  <span class="logo-wrap"><img class="logo-base" src="images/logo.svg" alt="Matthew Hanna"><img class="logo-hover" src="images/logo-neon.svg" alt=""></span>
 
   <h1 class="sr-only">Matthew Hanna: original drawings and sketches, Melbourne, Victoria</h1>
   <ul class="sr-only" aria-label="All works">
