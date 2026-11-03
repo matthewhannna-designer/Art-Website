@@ -362,7 +362,11 @@
         var a = ART[idx];
         vimg.src = a.file;
         vimg.alt = 'Artwork ' + a.id;
-        document.getElementById('vtitle').textContent = 'Sketch ' + String(idx + 1).padStart(2, '0');
+        var cards = ART.filter(function (x) { return x.kind === 'card'; }).length;
+        var label = a.kind === 'cover'
+          ? 'Sketchbook ' + String(idx - cards + 1).padStart(2, '0')
+          : 'Sketch ' + String(idx + 1).padStart(2, '0');
+        document.getElementById('vtitle').textContent = label;
         document.getElementById('vmedium').textContent = a.kind === 'cover' ? 'Sketchbook cover' : 'Drawing';
         document.getElementById('vbody').textContent = 'Description to add.';
         document.getElementById('vprice').textContent = '$xxx';
