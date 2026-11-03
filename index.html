@@ -362,7 +362,7 @@
         var a = ART[idx];
         vimg.src = a.file;
         vimg.alt = 'Artwork ' + a.id;
-        document.getElementById('vtitle').textContent = 'Untitled';
+        document.getElementById('vtitle').textContent = 'Sketch ' + String(idx + 1).padStart(2, '0');
         document.getElementById('vmedium').textContent = a.kind === 'cover' ? 'Sketchbook cover' : 'Drawing';
         document.getElementById('vbody').textContent = 'Description to add.';
         document.getElementById('vprice').textContent = '$xxx';
