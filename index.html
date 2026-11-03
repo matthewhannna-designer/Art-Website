@@ -452,7 +452,7 @@
 
       var drag = null;
       stage.addEventListener('pointerdown', function (e) {
-        drag = { x: e.clientX, y: e.clientY, cx: camX, cy: camY, moved: false };
+        drag = { x: e.clientX, y: e.clientY, cx: camX, cy: camY, moved: false, tile: e.target.closest ? e.target.closest('.tile') : null };
         stage.setPointerCapture(e.pointerId);
         stage.classList.add('grabbing');
       });
@@ -468,7 +468,7 @@
       });
       function endDrag(e) {
         if (drag && !drag.moved) {
-          var tile = e.target.closest && e.target.closest('.tile');
+          var tile = drag.tile;
           if (tile) openViewer(parseInt(tile.dataset.idx, 10));
         }
         drag = null;
@@ -507,8 +507,8 @@
           ? 'Sketchbook ' + String(idx - cards + 1).padStart(2, '0')
           : 'Sketch ' + String(idx + 1).padStart(2, '0');
         document.getElementById('vtitle').textContent = label;
-        document.getElementById('vmedium').textContent = a.kind === 'cover' ? 'Sketchbook cover' : 'Drawing';
-        document.getElementById('vbody').textContent = 'Description to add.';
+        document.getElementById('vmedium').textContent = a.kind === 'cover' ? 'Paint on synthetic leather' : 'Ink on paper';
+        document.getElementById('vbody').textContent = 'Original work by Matthew Hanna. Description to add.';
         document.getElementById('vprice').textContent = '$xxx';
         viewer.classList.add('show');
       }
