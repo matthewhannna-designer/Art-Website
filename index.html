@@ -226,6 +226,31 @@
     .logo-hover { opacity: 0; }
     .logo-wrap:hover .logo-hover { opacity: 1; }
     .logo-wrap:hover .logo-base { opacity: 0; }
+    /* Expanded piece: a card floating in space that rotates with the mouse or a drag */
+    .view-wrap { perspective: 1600px; }
+    .mat {
+      position: relative;
+      display: inline-block;
+      transform-style: preserve-3d;
+      transition: none;
+      will-change: transform;
+      cursor: grab;
+      touch-action: none;
+    }
+    .mat:active { cursor: grabbing; }
+    .mat::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #e4e2dd;
+      transform: translateZ(-10px);
+      box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.35);
+    }
+    .mat img {
+      position: relative;
+      transform: translateZ(0.5px);
+      backface-visibility: hidden;
+    }
   </style>
 </head>
 <body>
@@ -469,7 +494,7 @@
       function endDrag(e) {
         if (drag && !drag.moved) {
           var tile = drag.tile;
-          if (tile) openViewer(parseInt(tile.dataset.idx, 10));
+          if (tile) openViewer(parseInt(tile.dataset.idx, 10), tile);
         }
         drag = null;
         stage.classList.remove('grabbing');
@@ -498,31 +523,71 @@
       var viewer = document.getElementById('viewer');
       var vimg = document.getElementById('vimg');
       var mat = document.getElementById('mat');
-      function openViewer(idx) {
+      var openTile = null, animated = false;
+      var base = { x: 0, y: 0 }, hov = { x: 0, y: 0 }, cur = { x: 0, y: 0 };
+      var spinDrag = null;
+      function expandIn() {
+        if (animated || !openTile || !vimg.naturalWidth) return;
+        animated = true;
+        var t = openTile.getBoundingClientRect();
+        var m = mat.getBoundingClientRect();
+        var sc = Math.max(0.05, t.width / m.width);
+        var dx = (t.left + t.width / 2) - (m.left + m.width / 2);
+        var dy = (t.top + t.height / 2) - (m.top + m.height / 2);
+        mat.animate([
+          { transform: 'translate(' + dx + 'px,' + dy + 'px) scale(' + sc + ')', opacity: 0.3 },
+          { transform: 'translate(0,0) scale(1)', opacity: 1 }
+        ], { duration: 900, easing: 'cubic-bezier(.2,.75,.2,1)' });
+      }
+      function openViewer(idx, tile) {
         var a = ART[idx];
+        openTile = tile || null;
+        animated = false;
+        base.x = base.y = hov.x = hov.y = cur.x = cur.y = 0;
+        vimg.onload = expandIn;
         vimg.src = a.file;
         vimg.alt = labelFor(idx) + ', drawing by Matthew Hanna';
-        var cards = ART.filter(function (x) { return x.kind === 'card'; }).length;
-        var label = a.kind === 'cover'
-          ? 'Sketchbook ' + String(idx - cards + 1).padStart(2, '0')
-          : 'Sketch ' + String(idx + 1).padStart(2, '0');
-        document.getElementById('vtitle').textContent = label;
+        document.getElementById('vtitle').textContent = labelFor(idx);
         document.getElementById('vmedium').textContent = a.kind === 'cover' ? 'Paint on synthetic leather' : 'Ink on paper';
         document.getElementById('vbody').textContent = 'Original work by Matthew Hanna. Description to add.';
         document.getElementById('vprice').textContent = '$xxx';
         viewer.classList.add('show');
+        if (vimg.complete && vimg.naturalWidth) expandIn();
       }
       function closeViewer() { viewer.classList.remove('show'); mat.style.transform = ''; }
       document.getElementById('close').addEventListener('click', closeViewer);
       viewer.addEventListener('click', function (e) { if (e.target === viewer) closeViewer(); });
 
-      viewer.addEventListener('mousemove', function (e) {
-        var r = mat.getBoundingClientRect();
-        var dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
-        var dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
-        dx = Math.max(-1, Math.min(1, dx)); dy = Math.max(-1, Math.min(1, dy));
-        mat.style.transform = 'rotateY(' + (dx * 12) + 'deg) rotateX(' + (-dy * 12) + 'deg)';
+      viewer.addEventListener('pointerdown', function (e) {
+        if (!mat.contains(e.target)) return;
+        spinDrag = { x: e.clientX, y: e.clientY, bx: base.x, by: base.y };
+        mat.setPointerCapture && mat.setPointerCapture(e.pointerId);
       });
+      window.addEventListener('pointerup', function () { spinDrag = null; });
+      viewer.addEventListener('pointermove', function (e) {
+        if (!viewer.classList.contains('show')) return;
+        if (spinDrag) {
+          var dx = e.clientX - spinDrag.x, dy = e.clientY - spinDrag.y;
+          base.y = Math.max(-70, Math.min(70, spinDrag.by + dx * 0.35));
+          base.x = Math.max(-70, Math.min(70, spinDrag.bx - dy * 0.35));
+          return;
+        }
+        var r = mat.getBoundingClientRect();
+        var nx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
+        var ny = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
+        hov.y = Math.max(-1, Math.min(1, nx)) * 8;
+        hov.x = -Math.max(-1, Math.min(1, ny)) * 8;
+      });
+      function spinLoop() {
+        if (viewer.classList.contains('show')) {
+          var tx = base.x + hov.x, ty = base.y + hov.y;
+          cur.x += (tx - cur.x) * 0.12;
+          cur.y += (ty - cur.y) * 0.12;
+          mat.style.transform = 'perspective(1400px) rotateX(' + cur.x.toFixed(2) + 'deg) rotateY(' + cur.y.toFixed(2) + 'deg)';
+        }
+        requestAnimationFrame(spinLoop);
+      }
+      spinLoop();
 
       /* Hover travel: the further the pointer sits from the centre, the faster the view moves that way */
       var hx = null, hy = null;
