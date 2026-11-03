@@ -384,8 +384,27 @@
         mat.style.transform = 'rotateY(' + (dx * 12) + 'deg) rotateX(' + (-dy * 12) + 'deg)';
       });
 
+      /* Hover travel: the further the pointer sits from the centre, the faster the view moves that way */
+      var hx = null, hy = null;
+      window.addEventListener('pointermove', function (e) { hx = e.clientX; hy = e.clientY; });
+      window.addEventListener('mouseout', function (e) { if (!e.relatedTarget) { hx = null; hy = null; } });
+      function ease(v) {
+        var a = Math.abs(v);
+        if (a < 0.2) return 0;
+        return Math.sign(v) * (a - 0.2) / 0.8;
+      }
+      var SPEED = 12;
+      function tick() {
+        if (hx !== null && !drag && !viewer.classList.contains('show')) {
+          var W = window.innerWidth, H = window.innerHeight;
+          camX += ease((hx - W / 2) / (W / 2)) * SPEED;
+          camY += ease((hy - H / 2) / (H / 2)) * SPEED;
+        }
+        render();
+        requestAnimationFrame(tick);
+      }
       window.addEventListener('resize', schedule);
-      render();
+      tick();
     })();
   </script>
 </body>
