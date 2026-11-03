@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5000 1000">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <line class="cls-1" x1="2000" y1="1000" x2="2000"/>
+  <line class="cls-1" x1="2000" x2="2000" y2="1000"/>
+  <polygon points="0 1000 0 0 1000 1000 2000 0 2000 1000 0 1000"/>
+  <g>
+    <rect x="2500" width="1000" height="1000"/>
+    <rect x="4000" width="1000" height="1000"/>
+  </g>
+</svg>
