@@ -444,10 +444,11 @@
     /* Splash logo centred on the page */
     .splash-box { margin: 0 auto !important; }
     .splash-logo { justify-self: center !important; margin: 0 auto !important; }
-    /* Tighter line spacing, smaller unbolded contact line */
-    .splash-text p { line-height: 1.05 !important; margin: 0 0 0.35em !important; }
-    .splash-text p.contact { font-size: 0.55em !important; font-weight: 400 !important; line-height: 1.2 !important; }
-    .splash-text p.contact a { font-weight: 400 !important; }
+    /* Splash copy: equal 5px gaps, one size for every line, contact line matches the email */
+    .splash-text { justify-content: center !important; gap: 5px !important; }
+    .splash-text p { font-size: 1em !important; line-height: 1.1 !important; margin: 0 !important; }
+    .splash-text p.contact { font-size: 0.5em !important; font-weight: 400 !important; }
+    .splash-text p.contact a { font-size: 1em !important; font-weight: 400 !important; }
     /* Pieces always sit on white, even while the black splash is fading */
     .tile { background: #ffffff !important; }
     .tile img { background: #ffffff !important; }
@@ -548,9 +549,9 @@
     <div class="splash-box">
       <img class="splash-logo" src="images/logo-inverse.svg" alt="Matthew Hanna" width="300" height="60">
       <div class="splash-text">
-        <p>Hello and welcome to my gallery, my name is Matthew and this is all original work from 2015 to now.</p>
+        <p>Hello and welcome to my gallery. My name is Matthew, and this is all original work from 2015 to now.</p>
         <p>Melbourne, Australia.</p>
-        <p>Available to purchase.</p>
+        <p>Available for purchase.</p>
         <p class="contact">Contact for commissions <a href="mailto:matthewhannna@gmail.com">matthewhannna@gmail.com</a></p>
       </div>
     </div>
