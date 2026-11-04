@@ -327,6 +327,27 @@
       text-decoration: none;
     }
     .splash-box p a:hover { text-decoration: underline; }
+    /* Splash, gallery-style: full black screen, centred, large bold Helvetica in neon green, no arrow */
+    .splash { background: #000000; }
+    .splash-box {
+      max-width: 880px;
+      width: 100%;
+      text-align: center;
+      justify-items: center;
+    }
+    .splash-logo { justify-self: center; }
+    .splash-box,
+    .splash-box p,
+    .splash-box a {
+      color: #2CFF05;
+    }
+    .splash-box p {
+      font-size: clamp(1.6rem, 3.6vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+    }
+    .splash-box p a { color: #2CFF05; }
   </style>
 </head>
 <body>
