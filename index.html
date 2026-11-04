@@ -604,14 +604,32 @@
         var bj = ((j % BH) + BH) % BH;
         return SLOTS[bj * BW + bi];
       }
-      /* Small per-cell offset so the grid feels hand placed, kept small so pieces never overlap */
-      function jitter(i, j) {
-        var h = Math.imul(i | 0, 73856093) ^ Math.imul(j | 0, 19349663);
-        h = (h ^ (h >>> 13)) >>> 0;
-        h = Math.imul(h, 1274126177) >>> 0;
-        var a = (h % 1000) / 1000 - 0.5;
-        var b = ((h >>> 10) % 1000) / 1000 - 0.5;
-        return [a * 0.3 * CW, b * 0.3 * CH];
+      /* Even spacing: each column is as wide as its widest piece, each row as tall as its tallest,
+         with the same gap between every column and every row. Pieces are centred in their column and row. */
+      var GAP = 60;
+      var colW = [], rowH = [];
+      var c, r;
+      for (c = 0; c < BW; c++) {
+        var mw = 0;
+        for (r = 0; r < BH; r++) { var kc = SLOTS[r * BW + c]; if (kc >= 0) mw = Math.max(mw, ART[kc].w * PX_PER_CM); }
+        colW.push(mw || 120);
+      }
+      for (r = 0; r < BH; r++) {
+        var mh = 0;
+        for (c = 0; c < BW; c++) { var kr = SLOTS[r * BW + c]; if (kr >= 0) mh = Math.max(mh, ART[kr].h * PX_PER_CM); }
+        rowH.push(mh || 120);
+      }
+      var colC = [], rowC = [], pos = 0;
+      for (c = 0; c < BW; c++) { colC.push(pos + colW[c] / 2); pos += colW[c] + GAP; }
+      var BLOCK_W = pos;
+      pos = 0;
+      for (r = 0; r < BH; r++) { rowC.push(pos + rowH[r] / 2); pos += rowH[r] + GAP; }
+      var BLOCK_H = pos;
+      CW = BLOCK_W / BW;
+      CH = BLOCK_H / BH;
+      function cellCentre(i, j) {
+        var bi = ((i % BW) + BW) % BW, bj = ((j % BH) + BH) % BH;
+        return [Math.floor(i / BW) * BLOCK_W + colC[bi], Math.floor(j / BH) * BLOCK_H + rowC[bj]];
       }
 
       function labelFor(idx) {
@@ -638,8 +656,8 @@
         raf = 0;
         var W = window.innerWidth, H = window.innerHeight;
         var cx = W / 2, cy = H / 2;
-        var i0 = Math.floor((camX - cx) / CW) - 1, i1 = Math.ceil((camX + cx) / CW) + 1;
-        var j0 = Math.floor((camY - cy) / CH) - 1, j1 = Math.ceil((camY + cy) / CH) + 1;
+        var i0 = Math.floor((camX - cx) / CW) - 3, i1 = Math.ceil((camX + cx) / CW) + 3;
+        var j0 = Math.floor((camY - cy) / CH) - 3, j1 = Math.ceil((camY + cy) / CH) + 3;
         var diag = Math.hypot(W, H);
         var R0 = 0.42 * diag, R1 = 0.8 * diag;
         var seen = new Set();
@@ -657,9 +675,9 @@
               tiles.set(key, t);
               world.appendChild(t.el);
             }
-            var jt = jitter(i, j);
-            var sx = i * CW + jt[0] - camX + cx;
-            var sy = j * CH + jt[1] - camY + cy;
+            var cc = cellCentre(i, j);
+            var sx = cc[0] - camX + cx;
+            var sy = cc[1] - camY + cy;
             t.el.style.transform = 'translate3d(' + (sx - t.w / 2) + 'px,' + (sy - t.h / 2) + 'px,0)';
             var d = Math.hypot(sx - cx, sy - cy);
             var op = 1 - Math.max(0, d - R0) / (R1 - R0);
