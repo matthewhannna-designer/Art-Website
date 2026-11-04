@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5000 1000" fill="#ffffff" role="img" aria-label="Matthew Hanna logo">
+  <polygon points="0 1000 0 0 1000 1000 2000 0 2000 1000 0 1000"/>
+  <g>
+    <rect x="2500" width="1000" height="1000"/>
+    <rect x="4000" width="1000" height="1000"/>
+  </g>
+  <line x1="2000" y1="1000" x2="2000" stroke="#ffffff" stroke-width="40"/>
+  <line x1="2000" x2="2000" y2="1000" stroke="#ffffff" stroke-width="40"/>
+</svg>
