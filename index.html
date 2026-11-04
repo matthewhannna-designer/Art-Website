@@ -165,6 +165,7 @@
       font-size: 0.85rem;
       font-weight: 300;
       margin: 4px 0 0;
+      color: #808080;
     }
     .v-body {
       font-size: 1.05rem;
@@ -174,7 +175,7 @@
     }
     .v-price {
       font-family: "Dancing Script", cursive;
-      font-size: 2rem;
+      font-size: 1.05rem;
       font-weight: 600;
       margin: 22px 0 0;
     }
@@ -444,6 +445,9 @@
     /* Splash logo centred on the page */
     .splash-box { margin: 0 auto !important; }
     .splash-logo { justify-self: center !important; margin: 0 auto !important; }
+    /* Helvetica across the whole site, except the price */
+    *, *::before, *::after { font-family: Helvetica, Arial, sans-serif !important; }
+    .v-price { font-family: "Dancing Script", cursive !important; }
     /* Splash copy: equal 5px gaps, one size for every line, contact line matches the email */
     .splash-text { justify-content: center !important; gap: 5px !important; }
     .splash-text p { font-size: 1em !important; line-height: 1.1 !important; margin: 0 !important; }
