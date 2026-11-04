@@ -120,14 +120,27 @@
       color: #111111;
       cursor: pointer;
     }
+    /* Fixed layout: every piece sits in the same slot and the text column never moves */
     .view-wrap {
+      display: grid;
+      grid-template-columns: 56vw 360px;
+      grid-template-rows: 84vh;
+      align-items: center;
+      justify-content: center;
+      column-gap: 72px;
+      width: 100%;
+      max-width: 1200px;
+    }
+    .slot {
+      width: 56vw;
+      height: 84vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 72px;
-      width: 100%;
-      max-width: 1200px;
-      flex-wrap: wrap;
+    }
+    @media (max-width: 800px) {
+      .view-wrap { grid-template-columns: 1fr; grid-template-rows: 60vh auto; row-gap: 24px; }
+      .slot { width: 100%; height: 60vh; }
     }
     .mat { transition: transform 0.12s ease-out; }
     .mat img {
@@ -428,6 +441,10 @@
       width: 100%;
       justify-content: space-between;
     }
+    /* Tighter line spacing, smaller unbolded contact line */
+    .splash-text p { line-height: 1.05 !important; margin: 0 0 0.35em !important; }
+    .splash-text p.contact { font-size: 0.55em !important; font-weight: 400 !important; line-height: 1.2 !important; }
+    .splash-text p.contact a { font-weight: 400 !important; }
     /* Pieces always sit on white, even while the black splash is fading */
     .tile { background: #ffffff !important; }
     .tile img { background: #ffffff !important; }
@@ -531,7 +548,7 @@
         <p>Hello and welcome to my gallery, my name is Matthew and this is all original work from 2015 to now.</p>
         <p>Melbourne, Australia.</p>
         <p>Available to purchase.</p>
-        <p>Contact for commissions: <a href="mailto:matthewhannna@gmail.com">matthewhannna@gmail.com</a></p>
+        <p class="contact">Contact for commissions <a href="mailto:matthewhannna@gmail.com">matthewhannna@gmail.com</a></p>
       </div>
     </div>
   </div>
@@ -539,7 +556,7 @@
   <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Artwork details">
     <button class="close" type="button" aria-label="Close" id="close">&times;</button>
     <div class="view-wrap">
-      <div class="mat" id="mat"><img id="vimg" src="" alt=""></div>
+      <div class="slot"><div class="mat" id="mat"><img id="vimg" src="" alt=""></div></div>
       <div class="details">
         <h3 class="v-title" id="vtitle"></h3>
         <p class="v-medium" id="vmedium"></p>
