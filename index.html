@@ -454,6 +454,8 @@
     .splash-text p.contact { font-size: 0.5em !important; font-weight: 400 !important; }
     .splash-text p.contact { display: block !important; white-space: nowrap !important; }
     .splash-text p.contact a { font-size: 1em !important; font-weight: 400 !important; display: inline !important; }
+    /* Discourage saving or copying the artwork */
+    img { -webkit-user-drag: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
     /* Pieces always sit on white, even while the black splash is fading */
     .tile { background: #ffffff !important; }
     .tile img { background: #ffffff !important; }
@@ -730,6 +732,18 @@
       }
       stage.addEventListener('pointerup', endDrag);
       stage.addEventListener('pointercancel', function () { drag = null; stage.classList.remove('grabbing'); });
+
+      /* Stop right click save, drag out and copy of the artwork */
+      document.addEventListener('contextmenu', function (e) {
+        if (e.target && e.target.tagName === 'IMG') e.preventDefault();
+      });
+      document.addEventListener('dragstart', function (e) {
+        if (e.target && e.target.tagName === 'IMG') e.preventDefault();
+      });
+      document.addEventListener('copy', function (e) {
+        var sel = window.getSelection && window.getSelection();
+        if (sel && sel.anchorNode && sel.anchorNode.parentElement && sel.anchorNode.parentElement.closest('#stage, #viewer')) e.preventDefault();
+      });
 
       stage.addEventListener('wheel', function (e) {
         e.preventDefault();
