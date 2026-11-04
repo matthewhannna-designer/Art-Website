@@ -416,6 +416,18 @@
       align-items: flex-start !important;
     }
     .splash-box { justify-items: start; }
+    /* Splash copy: a near square block, text sized to fill it */
+    .splash-box {
+      aspect-ratio: auto !important;
+      width: var(--sq, 480px) !important;
+      height: var(--sq, 480px) !important;
+      max-width: none !important;
+    }
+    .splash-text {
+      height: 100%;
+      width: 100%;
+      justify-content: space-between;
+    }
   </style>
 </head>
 <body>
@@ -794,6 +806,27 @@
         }, 600);
       }
       splash.addEventListener('click', enter);
+    })();
+  </script>
+  <script>
+    (function () {
+      var box = document.querySelector('.splash-box');
+      var text = document.querySelector('.splash-text');
+      if (!box || !text) return;
+      function fit() {
+        var sq = Math.round(Math.min(window.innerWidth * 0.84, window.innerHeight * 0.74, 620));
+        document.documentElement.style.setProperty('--sq', sq + 'px');
+        var lo = 10, hi = 96, best = 10;
+        while (lo <= hi) {
+          var mid = Math.floor((lo + hi) / 2);
+          text.style.fontSize = mid + 'px';
+          if (text.scrollHeight <= sq && text.scrollWidth <= sq) { best = mid; lo = mid + 1; }
+          else { hi = mid - 1; }
+        }
+        text.style.fontSize = best + 'px';
+      }
+      fit();
+      window.addEventListener('resize', fit);
     })();
   </script>
 </body>
