@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /bounce.html
 
 # Block AI training crawlers
 User-agent: GPTBot

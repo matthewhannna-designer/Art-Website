@@ -1,4 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://art-website.matthewhannna.workers.dev/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://art-website.matthewhannna.workers.dev/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18344_01.jpg</image:loc><image:title>Sketch 01</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18344_02.jpg</image:loc><image:title>Sketch 02</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18344_03.jpg</image:loc><image:title>Sketch 03</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18344_04.jpg</image:loc><image:title>Sketch 04</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18344_05.jpg</image:loc><image:title>Sketch 05</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18344_06.jpg</image:loc><image:title>Sketch 06</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18344_07.jpg</image:loc><image:title>Sketch 07</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18344_08.jpg</image:loc><image:title>Sketch 08</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18346_01.jpg</image:loc><image:title>Sketch 09</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18346_02.jpg</image:loc><image:title>Sketch 10</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18346_03.jpg</image:loc><image:title>Sketch 11</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18346_04.jpg</image:loc><image:title>Sketch 12</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18346_05.jpg</image:loc><image:title>Sketch 13</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18346_06.jpg</image:loc><image:title>Sketch 14</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18346_07.jpg</image:loc><image:title>Sketch 15</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18347_01.jpg</image:loc><image:title>Sketch 16</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18347_02.jpg</image:loc><image:title>Sketch 17</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/set-18-33.jpg</image:loc><image:title>Sketches 18 to 33 (set of six)</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18347_05.jpg</image:loc><image:title>Sketch 20</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18347_06.jpg</image:loc><image:title>Sketch 21</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18347_08.jpg</image:loc><image:title>Sketch 23</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18347_09.jpg</image:loc><image:title>Sketch 24</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18347_11.jpg</image:loc><image:title>Sketch 26</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18347_12.jpg</image:loc><image:title>Sketch 27</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18347_14.jpg</image:loc><image:title>Sketch 29</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18347_15.jpg</image:loc><image:title>Sketch 30</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18347_16.jpg</image:loc><image:title>Sketch 31</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18347_17.jpg</image:loc><image:title>Sketch 32</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18348_01.jpg</image:loc><image:title>Sketch 34</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18348_02.jpg</image:loc><image:title>Sketch 35</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18348_03.jpg</image:loc><image:title>Sketch 36</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18348_04.jpg</image:loc><image:title>Sketch 37</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18348_05.jpg</image:loc><image:title>Sketch 38</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18348_06.jpg</image:loc><image:title>Sketch 39</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18348_07.jpg</image:loc><image:title>Sketch 40</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18348_08.jpg</image:loc><image:title>Sketch 41</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18348_09.jpg</image:loc><image:title>Sketch 42</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18348_10.jpg</image:loc><image:title>Sketch 43</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18348_11.jpg</image:loc><image:title>Sketch 44</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18348_12.jpg</image:loc><image:title>Sketch 45</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18348_13.jpg</image:loc><image:title>Sketch 46</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18348_14.jpg</image:loc><image:title>Sketch 47</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18348_15.jpg</image:loc><image:title>Sketch 48</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18348_16.jpg</image:loc><image:title>Sketch 49</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18349_01.jpg</image:loc><image:title>Sketch 50</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18349_02.jpg</image:loc><image:title>Sketch 51</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18349_03.jpg</image:loc><image:title>Sketch 52</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18349_04.jpg</image:loc><image:title>Sketch 53</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18349_05.jpg</image:loc><image:title>Sketch 54</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18349_06.jpg</image:loc><image:title>Sketch 55</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18350_01.jpg</image:loc><image:title>Sketch 56</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18350_02.jpg</image:loc><image:title>Sketch 57</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18350_03.jpg</image:loc><image:title>Sketch 58</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18350_04.jpg</image:loc><image:title>Sketch 59</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18350_05.jpg</image:loc><image:title>Sketch 60</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18350_06.jpg</image:loc><image:title>Sketch 61</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18350_07.jpg</image:loc><image:title>Sketch 62</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18351_01.jpg</image:loc><image:title>Sketch 63</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18351_02.jpg</image:loc><image:title>Sketch 64</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18351_03.jpg</image:loc><image:title>Sketch 65</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18351_04.jpg</image:loc><image:title>Sketch 66</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18351_05.jpg</image:loc><image:title>Sketch 67</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18351_06.jpg</image:loc><image:title>Sketch 68</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18351_07.jpg</image:loc><image:title>Sketch 69</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18351_08.jpg</image:loc><image:title>Sketch 70</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18351_09.jpg</image:loc><image:title>Sketch 71</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18352_01.jpg</image:loc><image:title>Sketch 72</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18352_02.jpg</image:loc><image:title>Sketch 73</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18352_03.jpg</image:loc><image:title>Sketch 74</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18352_04.jpg</image:loc><image:title>Sketch 75</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18352_05.jpg</image:loc><image:title>Sketch 76</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/18352_06.jpg</image:loc><image:title>Sketch 77</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/0353a_black.jpg</image:loc><image:title>Sketchbook 01</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/0353a_navy.jpg</image:loc><image:title>Sketchbook 02</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/0353a_red.jpg</image:loc><image:title>Sketchbook 03</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/0353b_bottom.jpg</image:loc><image:title>Sketchbook 04</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/0353b_mid.jpg</image:loc><image:title>Sketchbook 05</image:title></image:image>
+    <image:image><image:loc>https://art-website.matthewhannna.workers.dev/images/art/0353b_top.jpg</image:loc><image:title>Sketchbook 06</image:title></image:image>
+  </url>
 </urlset>
