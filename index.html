@@ -358,6 +358,29 @@
       opacity: 0;
     }
     .splash { background: #000000; }
+    /* Copy: left aligned in a compact square block with even spacing */
+    .splash-box {
+      width: min(520px, 84vw);
+      max-width: none;
+      aspect-ratio: 1 / 1;
+      text-align: left;
+      justify-items: start;
+      align-items: center;
+    }
+    .splash-logo { justify-self: start; align-self: start; margin: 0; }
+    .splash-text {
+      grid-area: 1 / 1;
+      align-self: center;
+      justify-self: start;
+      width: 100%;
+    }
+    .splash-box p {
+      font-size: clamp(1.25rem, 2.6vw, 1.9rem);
+      line-height: 1.15;
+      margin: 0 0 0.6em;
+      text-align: left;
+    }
+    .splash-box p:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
