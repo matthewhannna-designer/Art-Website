@@ -452,7 +452,8 @@
     .splash-text { justify-content: center !important; gap: 5px !important; }
     .splash-text p { font-size: 1em !important; line-height: 1.1 !important; margin: 0 !important; }
     .splash-text p.contact { font-size: 0.5em !important; font-weight: 400 !important; }
-    .splash-text p.contact a { font-size: 1em !important; font-weight: 400 !important; }
+    .splash-text p.contact { display: block !important; white-space: nowrap !important; }
+    .splash-text p.contact a { font-size: 1em !important; font-weight: 400 !important; display: inline !important; }
     /* Pieces always sit on white, even while the black splash is fading */
     .tile { background: #ffffff !important; }
     .tile img { background: #ffffff !important; }
@@ -869,7 +870,7 @@
           if (text.scrollHeight <= sq && text.scrollWidth <= sq) { best = mid; lo = mid + 1; }
           else { hi = mid - 1; }
         }
-        text.style.fontSize = best + 'px';
+        text.style.fontSize = Math.floor(best * 0.9) + 'px';
       }
       fit();
       window.addEventListener('resize', fit);
