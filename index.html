@@ -348,6 +348,16 @@
       letter-spacing: -0.01em;
     }
     .splash-box p a { color: #2CFF05; }
+    /* While the splash is up, the whole page is black */
+    html.splash-on,
+    html.splash-on body {
+      background: #000000 !important;
+    }
+    html.splash-on .logo-wrap,
+    html.splash-on .cart {
+      opacity: 0;
+    }
+    .splash { background: #000000; }
   </style>
 </head>
 <body>
@@ -718,9 +728,13 @@
   <script>
     (function () {
       var splash = document.getElementById('splash');
+      document.documentElement.classList.add('splash-on');
       function enter() {
         splash.classList.add('hide');
-        setTimeout(function () { splash.style.display = 'none'; }, 600);
+        setTimeout(function () {
+          splash.style.display = 'none';
+          document.documentElement.classList.remove('splash-on');
+        }, 600);
       }
       splash.addEventListener('click', enter);
     })();
