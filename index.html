@@ -347,6 +347,19 @@
       touch-action: none;
     }
     .mat:active { cursor: grabbing; }
+    /* Sketchbook covers: a thick sketchbook block with page edges behind the cover */
+    .mat.cover::before {
+      transform: translateZ(-34px);
+      background: #1f1f1f;
+      box-shadow: 0 40px 60px -24px rgba(0, 0, 0, 0.45);
+    }
+    .mat.cover::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: translateZ(-16px);
+      background: repeating-linear-gradient(180deg, #f5f3ee 0 1px, #d6d1c6 1px 2px);
+    }
     .mat::before {
       content: "";
       position: absolute;
@@ -884,6 +897,7 @@
         base.x = base.y = hov.x = hov.y = cur.x = cur.y = 0;
         vimg.onload = expandIn;
         vimg.src = a.file;
+        mat.classList.toggle('cover', a.kind === 'cover');
         vimg.alt = labelFor(idx) + ', drawing by Matthew Hanna';
         document.getElementById('vtitle').textContent = labelFor(idx);
         document.getElementById('vmedium').textContent = a.kind === 'cover' ? 'Paint on synthetic leather' : 'Ink on paper';
