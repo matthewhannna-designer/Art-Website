@@ -278,11 +278,36 @@
     .splash.hide { opacity: 0; pointer-events: none; }
     .splash-box {
       max-width: 420px;
+      width: 100%;
       font-family: Helvetica, Arial, sans-serif;
       color: #111111;
       text-align: left;
     }
-    .splash-logo { display: block; height: 28px; width: auto; margin-bottom: 28px; }
+    .splash-box { display: grid; }
+    .splash-logo {
+      grid-area: 1 / 1;
+      justify-self: start;
+      align-self: center;
+      height: 28px;
+      width: auto;
+      animation: splash-logo 2.4s ease both;
+      pointer-events: none;
+    }
+    .splash-text {
+      grid-area: 1 / 1;
+      animation: splash-text 0.9s ease 2s both;
+    }
+    @keyframes splash-logo {
+      0%   { opacity: 0; transform: scale(0.5); }
+      22%  { opacity: 1; transform: scale(1.08); }
+      34%  { opacity: 1; transform: scale(1); }
+      66%  { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1); }
+    }
+    @keyframes splash-text {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: none; }
+    }
     .splash-box h2 { font-size: 1.25rem; font-weight: 700; margin: 0 0 14px; }
     .splash-box p { font-size: 0.98rem; line-height: 1.55; margin: 0 0 12px; }
     .splash-enter {
@@ -394,10 +419,12 @@
   <div class="splash" id="splash" role="dialog" aria-modal="true" aria-labelledby="splash-title">
     <div class="splash-box">
       <img class="splash-logo" src="images/logo.svg" alt="Matthew Hanna" width="140" height="28">
-      <h2 id="splash-title">Original drawings and sketches</h2>
-      <p>This is the sketchbook of Matthew Hanna, an artist based in Melbourne. Every drawing is original and one of a kind.</p>
-      <p>Move your mouse toward the edges to travel, or drag, or scroll. Click any drawing to see it up close.</p>
-      <button class="splash-enter" type="button" id="splash-enter">Enter</button>
+      <div class="splash-text">
+        <h2 id="splash-title">Original drawings and sketches</h2>
+        <p>This is the sketchbook of Matthew Hanna, an artist based in Melbourne. Every drawing is original and one of a kind.</p>
+        <p>Move your mouse toward the edges to travel, or drag, or scroll. Click any drawing to see it up close.</p>
+        <button class="splash-enter" type="button" id="splash-enter">Enter</button>
+      </div>
     </div>
   </div>
 
