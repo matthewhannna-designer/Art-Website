@@ -262,6 +262,42 @@
       height: 22px;
     }
     .cart svg { display: block; }
+    /* Splash screen: explains the page on arrival */
+    .splash {
+      position: fixed;
+      inset: 0;
+      z-index: 15;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      box-sizing: border-box;
+      transition: opacity 0.5s ease;
+    }
+    .splash.hide { opacity: 0; pointer-events: none; }
+    .splash-box {
+      max-width: 420px;
+      font-family: Helvetica, Arial, sans-serif;
+      color: #111111;
+      text-align: left;
+    }
+    .splash-logo { display: block; height: 28px; width: auto; margin-bottom: 28px; }
+    .splash-box h2 { font-size: 1.25rem; font-weight: 700; margin: 0 0 14px; }
+    .splash-box p { font-size: 0.98rem; line-height: 1.55; margin: 0 0 12px; }
+    .splash-enter {
+      margin-top: 14px;
+      padding: 12px 22px;
+      background: #111111;
+      color: #ffffff;
+      border: 0;
+      border-radius: 1px;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .splash-enter:hover { background: #2CFF05; color: #111111; }
   </style>
 </head>
 <body>
@@ -354,6 +390,16 @@
     <div id="world"></div>
   </div>
 
+
+  <div class="splash" id="splash" role="dialog" aria-modal="true" aria-labelledby="splash-title">
+    <div class="splash-box">
+      <img class="splash-logo" src="images/logo.svg" alt="Matthew Hanna" width="140" height="28">
+      <h2 id="splash-title">Original drawings and sketches</h2>
+      <p>This is the sketchbook of Matthew Hanna, an artist based in Melbourne. Every drawing is original and one of a kind.</p>
+      <p>Move your mouse toward the edges to travel, or drag, or scroll. Click any drawing to see it up close.</p>
+      <button class="splash-enter" type="button" id="splash-enter">Enter</button>
+    </div>
+  </div>
 
   <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Artwork details">
     <button class="close" type="button" aria-label="Close" id="close">&times;</button>
@@ -614,6 +660,19 @@
       }
       window.addEventListener('resize', schedule);
       tick();
+    })();
+  </script>
+  <script>
+    (function () {
+      var splash = document.getElementById('splash');
+      function enter() {
+        splash.classList.add('hide');
+        setTimeout(function () { splash.style.display = 'none'; }, 600);
+      }
+      document.getElementById('splash-enter').addEventListener('click', enter);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === 'Escape') enter();
+      });
     })();
   </script>
 </body>
