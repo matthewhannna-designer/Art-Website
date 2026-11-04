@@ -323,6 +323,38 @@
       cursor: pointer;
     }
     .splash-enter:hover { background: #2CFF05; color: #111111; }
+    /* Splash text: Helvetica, bold, tight lines, neon green */
+    .splash-box,
+    .splash-box p,
+    .splash-box a,
+    .splash-enter {
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      color: #2CFF05;
+    }
+    .splash-box p {
+      font-size: 1.15rem;
+      line-height: 1.2;
+      margin: 0;
+    }
+    .splash-box p a {
+      color: #2CFF05;
+      text-decoration: none;
+    }
+    .splash-box p a:hover { text-decoration: underline; }
+    .splash-enter {
+      margin-top: 18px;
+      padding: 10px 20px;
+      background: transparent;
+      border: 2px solid #2CFF05;
+      border-radius: 0;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .splash-enter:hover {
+      background: #2CFF05;
+      color: #111111;
+    }
   </style>
 </head>
 <body>
@@ -420,9 +452,11 @@
     <div class="splash-box">
       <img class="splash-logo" src="images/logo.svg" alt="Matthew Hanna" width="140" height="28">
       <div class="splash-text">
-        <h2 id="splash-title">Original drawings and sketches</h2>
-        <p>This is the sketchbook of Matthew Hanna, an artist based in Melbourne. Every drawing is original and one of a kind.</p>
-        <p>Move your mouse toward the edges to travel, or drag, or scroll. Click any drawing to see it up close.</p>
+        <p>Hello and welcome to my gallery, my name is Matthew and this is all original work from 2015 to now.</p>
+        <p>Melbourne, Australia.</p>
+        <p>Available to purchase.</p>
+        <p>Contact for commissions:</p>
+        <p><a href="mailto:matthewhannna@gmail.com">matthewhannna@gmail.com</a></p>
         <button class="splash-enter" type="button" id="splash-enter">Enter</button>
       </div>
     </div>
